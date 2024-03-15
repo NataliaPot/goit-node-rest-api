@@ -3,5 +3,4 @@ node_modules/
 .idea
 .vscode
 .DS_Store
-yarn.lock
-yarn.error
+config.js

@@ -2,8 +2,7 @@ import mongoose from "mongoose";
 
 import { app } from "./app.js";
 
-const DB_HOST =
-  "mongodb+srv://Natalia:XKnU1VphJwFDI3JF@cluster0.dwcsg2o.mongodb.net/contacts_reader?retryWrites=true&w=majority&appName=Cluster0";
+import { DB_HOST } from "./config.js";
 
 mongoose
   .connect(DB_HOST)
