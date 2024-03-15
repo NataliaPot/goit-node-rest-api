@@ -1,7 +1,6 @@
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
-import mongoose from "mongoose";
 
 import contactsRouter from "./routes/contactsRouter.js";
 
@@ -23,4 +22,3 @@ app.use((err, req, res, next) => {
 });
 
 // XKnU1VphJwFDI3JF
-
