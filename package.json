@@ -1,7 +1,6 @@
 {
   "name": "goit-node-rest-api",
   "type": "module",
-  "license": "UNLICENSED",
   "scripts": {
     "start": "node ./app.js",
     "dev": "nodemon ./app.js"
