@@ -1,11 +1,10 @@
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
-import mongoose from "mongoose";
 
 import contactsRouter from "./routes/contactsRouter.js";
 
-export const app = express();
+const app = express();
 
 app.use(morgan("tiny"));
 app.use(cors());
@@ -22,5 +21,6 @@ app.use((err, req, res, next) => {
   res.status(status).json({ message });
 });
 
-// XKnU1VphJwFDI3JF
-
+app.listen(3000, () => {
+  console.log("Server is running. Use our API on port: 3000");
+});
