@@ -5,7 +5,7 @@ import "dotenv/config";
 
 import contactsRouter from "./routes/contactsRouter.js";
 
-export const app = express();
+const app = express();
 
 app.use(morgan("tiny"));
 app.use(cors());
