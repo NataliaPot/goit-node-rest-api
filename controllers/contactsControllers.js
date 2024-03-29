@@ -1,6 +1,8 @@
 import * as contactsService from "../services/contactsServices.js";
+
 import HttpError from "../helpers/HttpError.js";
-import ctrlWrapper from "../helpers/ctrlWrapper.js";
+
+import ctrlWrapper from "../decorators/ctrlWrapper.js";
 
 export const getAllContacts = async (req, res) => {
   const { _id: owner } = req.user;

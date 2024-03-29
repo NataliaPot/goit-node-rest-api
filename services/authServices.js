@@ -8,14 +8,10 @@ export const signUp = async (data) => {
   return User.create({ ...data, password: hashPassword });
 };
 
-export const findUser = (filter) => {
-  return User.findOne(filter);
-};
+export const findUser = (filter) => User.findOne(filter);
 
 export const setUserToken = (filter, data) =>
   User.findOneAndUpdate(filter, data);
 
-export const updateSubscription = (filter, data) =>
-  User.findOneAndUpdate(filter, data, {
-    new: true,
-  });
+export const updateUser = (filter, data) =>
+  User.findOneAndUpdate(filter, data);

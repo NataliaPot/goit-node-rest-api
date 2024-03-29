@@ -1,8 +1,9 @@
 import express from "express";
 import { ctrl } from "../controllers/authControllers.js";
 
-import validateBody from "../helpers/validateBody.js";
+import validateBody from "../decorators/validateBody.js";
 import authenticate from "../middlewares/authenticate.js";
+import upload from "../middlewares/upload.js";
 
 import {
   registerSchema,
@@ -25,6 +26,13 @@ authRouter.patch(
   authenticate,
   validateBody(updateSubscriptionSchema),
   ctrl.updateSubscription
+);
+
+authRouter.patch(
+  "/avatars",
+  authenticate,
+  upload.single("avatar"),
+  ctrl.updateAvatar
 );
 
 export default authRouter;

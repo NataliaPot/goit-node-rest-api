@@ -14,11 +14,7 @@ export const removeContact = (id) => Contact.findOneAndDelete(id);
 export const addContact = (data) => Contact.create(data);
 
 export const updateById = async (id, data) =>
-  Contact.findOneAndUpdate(id, data, {
-    new: true,
-  });
+  Contact.findOneAndUpdate(id, data);
 
 export const updateStatusById = async (id, data) =>
-  Contact.findOneAndUpdate(id, data, {
-    new: true,
-  });
+  Contact.findOneAndUpdate(id, data);
