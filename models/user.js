@@ -1,7 +1,8 @@
 import { Schema, model } from "mongoose";
-import { handleMongooseError } from "../helpers/handleMongooseError.js";
 
-export const emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+import { emailRegexp } from "../constants/user-constants.js";
+
+import { handleSaveError, setUpdateSetting } from "./hooks.js";
 
 const userSchema = new Schema(
   {
@@ -25,11 +26,17 @@ const userSchema = new Schema(
       type: String,
       default: null,
     },
+    avatarURL: {
+      type: String,
+      required: true,
+    },
   },
   { version: false, timestamps: true }
 );
 
-userSchema.post("save", handleMongooseError);
+userSchema.post("save", handleSaveError);
+userSchema.pre("findOneAndUpdate", setUpdateSetting);
+userSchema.post("findOneAndUpdate", handleSaveError);
 
 const User = model("user", userSchema);
 
