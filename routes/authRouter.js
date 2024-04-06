@@ -9,11 +9,16 @@ import {
   registerSchema,
   loginSchema,
   updateSubscriptionSchema,
+  emailSchema,
 } from "../schemas/usersSchemas.js";
 
 const authRouter = express.Router();
 
 authRouter.post("/register", validateBody(registerSchema), ctrl.register);
+
+authRouter.get("/verify/:verificationToken", ctrl.verifyEmail);
+
+authRouter.post("/verify", validateBody(emailSchema), ctrl.resendVerifyEmail);
 
 authRouter.post("/login", validateBody(loginSchema), ctrl.login);
 
